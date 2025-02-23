@@ -3,9 +3,12 @@ import Image from 'next/image'
 import InviteLinkInput from './_components/invite-link-input'
 import Ranking from './_components/ranking'
 import Stats from './_components/stats'
-
-const InvitePage = () => {
-  const inviteLink = 'http://localhost:3000/invite/abcd-234wnmrbms'
+interface InvitePageProps {
+  params: Promise<{ subscriberId: string }>
+}
+const InvitePage = async (props: InvitePageProps) => {
+  const { subscriberId } = await props.params
+  const inviteLink = `http://localhost:3333/invites/${subscriberId}`
 
   return (
     <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
@@ -30,7 +33,7 @@ const InvitePage = () => {
             </p>
           </div>
           <InviteLinkInput inviteLink={inviteLink} />
-          <Stats />
+          <Stats subscriberId={subscriberId}/>
         </div>
       </div>
 
