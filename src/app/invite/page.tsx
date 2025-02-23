@@ -5,6 +5,8 @@ import Ranking from './_components/ranking'
 import Stats from './_components/stats'
 
 const InvitePage = () => {
+  const inviteLink = 'http://localhost:3000/invite/abcd-234wnmrbms'
+
   return (
     <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
       <div className="flex flex-col gap-10 w-full max-w-[550px]">
@@ -27,7 +29,7 @@ const InvitePage = () => {
               É só compartilhar o link abaixo e acompanhar as inscrições.
             </p>
           </div>
-          <InviteLinkInput />
+          <InviteLinkInput inviteLink={inviteLink} />
           <Stats />
         </div>
       </div>
